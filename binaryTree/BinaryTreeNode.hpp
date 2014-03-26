@@ -14,7 +14,7 @@ public:
 	BinaryTreeNode * bigChildPtr;
 
 	//# public constructors and destructors #//
-	BinaryTreeNode(const T data);
+	BinaryTreeNode(const T & data);
 
 	//# public methods #//
 	std::string generateInfixNotation() const;
@@ -22,7 +22,7 @@ public:
 };
 
 template<typename T>
-BinaryTreeNode<T>::BinaryTreeNode(const T data) 
+BinaryTreeNode<T>::BinaryTreeNode(const T & data) 
 	: data(data), smallChildPtr(NULL), bigChildPtr(NULL) {}
 
 template<typename T>
