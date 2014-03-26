@@ -1,9 +1,7 @@
 #ifndef BINARYTREE_HPP
 #define BINARYTREE_HPP
 
-#include <cstddef>
 #include <string>
-#include <sstream>
 #include "BinaryTreeNode.hpp"
 
 template<typename T>
@@ -23,13 +21,8 @@ public:
 	std::string generatePostfixNotation() const;
 
 private:
-//# private constructors #//
-	BinaryTree(const T & data);
-
 //# private attributes #//
-	const T * dataPtr;
-	BinaryTree * smallChildPtr;
-	BinaryTree * bigChildPtr;
+	BinaryTreeNode<T> * rootPtr;
 };
 
 #include "BinaryTree.t"

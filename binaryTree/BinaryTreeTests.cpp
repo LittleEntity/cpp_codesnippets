@@ -9,9 +9,6 @@ namespace tests_BinaryTree {
 	using std::endl;
 
 	void tests_insert() {
-		BinaryTreeNode<int> myNode(1);
-		cout << myNode.data << endl;
-
 		BinaryTree<string> bt;
 		bt.insert("c");
 		bt.insert("d");
