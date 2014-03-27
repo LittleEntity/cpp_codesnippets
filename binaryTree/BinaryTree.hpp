@@ -7,11 +7,11 @@
 template<typename T>
 class BinaryTree {
 public:
-//# public constructors and destructors #//
+	//# public constructors and destructors #//
 	BinaryTree();
 	// BinaryTree(BinaryTree & bt);
 	//~BinaryTree();
-//# public methods #//
+	//# public methods #//
 	void insert(const T & data);
 	//void remove(const T & data);
 	//void find(const T & data) const;
@@ -21,7 +21,7 @@ public:
 	std::string generatePostfixNotation() const;
 
 private:
-//# private attributes #//
+	//# private attributes #//
 	BinaryTreeNode<T> * rootPtr;
 };
 
