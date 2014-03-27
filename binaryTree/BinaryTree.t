@@ -1,13 +1,15 @@
 #ifndef BINARYTREE_T
 #define BINARYTREE_T
 
-#include <cstddef>
+/* for those who did not know what "nullptr" is: 
+"nullptr is a literal denoting the null pointer; it is not an integer"
+quote of "http://www.stroustrup.com/C++11FAQ.html#nullptr" */
 
 using std::string;
 
 template<typename T>
 BinaryTree<T>::BinaryTree() {
-	rootPtr = NULL;
+	rootPtr = nullptr;
 }
 
 template<typename T>
@@ -15,7 +17,7 @@ void BinaryTree<T>::insert(const T & dataToBeInserted) {
 
 	BinaryTreeNode<T> ** insertionPointPtr = &rootPtr;
 	
-	while (*insertionPointPtr != NULL) {
+	while (*insertionPointPtr != nullptr) {
 		BinaryTreeNode<T> & currentNode = **insertionPointPtr;
 		if (dataToBeInserted < currentNode.data) {
 			insertionPointPtr = &(currentNode.smallChildPtr);
@@ -29,7 +31,7 @@ void BinaryTree<T>::insert(const T & dataToBeInserted) {
 
 template<typename T>
 bool BinaryTree<T>::isEmpty() const {
-	return rootPtr == NULL;
+	return rootPtr == nullptr;
 }
 
 template<typename T>

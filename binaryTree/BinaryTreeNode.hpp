@@ -1,7 +1,6 @@
 #ifndef BINARYTREENODE_HPP
 #define BINARYTREENODE_HPP
 
-#include <cstddef>
 #include <string>
 #include <sstream>
 
@@ -23,20 +22,20 @@ public:
 
 template<typename T>
 BinaryTreeNode<T>::BinaryTreeNode(const T & data) 
-	: data(data), smallChildPtr(NULL), bigChildPtr(NULL) {}
+	: data(data), smallChildPtr(nullptr), bigChildPtr(nullptr) {}
 
 template<typename T>
 std::string BinaryTreeNode<T>::generateInfixNotation() const {
 	using std::stringstream;
 	stringstream infixNotation;
 	
-	if (smallChildPtr != NULL) { 
+	if (smallChildPtr != nullptr) { 
 		infixNotation << smallChildPtr->generateInfixNotation();
 	}
 	
 	infixNotation << " " << data << " ";
 
-	if (bigChildPtr != NULL) {
+	if (bigChildPtr != nullptr) {
 		infixNotation << bigChildPtr->generateInfixNotation();
 	}
 
@@ -49,11 +48,11 @@ std::string BinaryTreeNode<T>::generatePostfixNotation() const {
 	stringstream postfixNotation;
 	postfixNotation << " " << data << " ";
 
-	if (smallChildPtr != NULL) {
+	if (smallChildPtr != nullptr) {
 		postfixNotation << smallChildPtr->generatePostfixNotation();
 	}
 
-	if(bigChildPtr != NULL) {
+	if(bigChildPtr != nullptr) {
 		postfixNotation << bigChildPtr->generatePostfixNotation();
 	}
 
