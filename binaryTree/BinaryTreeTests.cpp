@@ -25,18 +25,29 @@ namespace tests_BinaryTree {
 		bti.insert(3);
 		bti.insert(7);
 		bti.insert(6);
+		bti.insert(4);
+		bti.insert(2);
+		bti.insert(5);
 
 		cout << bti.generateInfixNotation() << endl;
 		cout << bti.generatePostfixNotation() << endl;
 	}
 
+	void tests_remove() {
+		BinaryTree<int> bti;
+		bti.insert(10);
+		bti.remove(10);
+
+		cout << bti.generateInfixNotation() << endl;
+		cout << bti.generatePostfixNotation() << endl;	
+	}
+
 	void runTests() {
 		tests_insert();
+		tests_remove();
 	}
 }
 
 int main() {
-	using std::string;
-	using std::cout;
 	tests_BinaryTree::runTests();
 }

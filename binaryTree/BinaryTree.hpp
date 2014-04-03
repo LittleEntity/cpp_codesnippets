@@ -12,9 +12,10 @@ public:
 	// BinaryTree(BinaryTree & bt);
 	//~BinaryTree();
 	//# public methods #//
-	void insert(const T & data);
-	//void remove(const T & data);
-	//void find(const T & data) const;
+	bool insert(const T & data);
+	bool remove(const T & data);
+	//void update(const T & data);
+	//bool hasElement(const T & data) const;
 	bool isEmpty() const;
 	//const T & getData() const;
 	std::string generateInfixNotation() const;
