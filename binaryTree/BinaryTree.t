@@ -43,8 +43,9 @@ bool BinaryTree<T>::remove(const T & dataToBeDeleted) {
 	BinaryTreeNode<T> ** parentToChildPtrPtr = &rootPtr;
 	BinaryTreeNode<T> ** removalPtr = &rootPtr;
 
-	cout << "data" << (**removalPtr).data << endl;
-	cout << "dataToBeDeleted" << dataToBeDeleted << endl;
+	//cout << "data: " << (**removalPtr).data << endl;
+	//cout << "dataToBeDeleted: " << dataToBeDeleted << endl;
+	//cout << "vergleich: " << ((**removalPtr).data != dataToBeDeleted) << endl;
 	while ((**removalPtr).data != dataToBeDeleted) {
 		BinaryTreeNode<T> & currentNode = **removalPtr;
 		if (dataToBeDeleted < currentNode.data) {
@@ -59,11 +60,14 @@ bool BinaryTree<T>::remove(const T & dataToBeDeleted) {
 	}
 
 	BinaryTreeNode<T> & currentNode = **removalPtr;
+	//cout << "currentNode.smallChildPtr: " << currentNode.smallChildPtr << endl;
+	//cout << "currentNode.bigChildPtr: " << currentNode.bigChildPtr << endl;
 	// case: node has no children
 	const bool hasNoChildren = (currentNode.smallChildPtr == nullptr) && (currentNode.bigChildPtr == nullptr);
 	if (hasNoChildren) {
 		delete *removalPtr;
 		*removalPtr = nullptr;
+		//cout << "hallo" << endl;
 		return true;
 	}
 
@@ -97,11 +101,13 @@ bool BinaryTree<T>::isEmpty() const {
 
 template<typename T>
 string BinaryTree<T>::generateInfixNotation() const {
+	if (isEmpty()) { return "emptyTree"; }
 	return rootPtr->generateInfixNotation();
 }
 
 template<typename T>
 string BinaryTree<T>::generatePostfixNotation() const {
+	if (isEmpty()) { return "emptyTree"; }
 	return rootPtr->generatePostfixNotation();
 }
 
