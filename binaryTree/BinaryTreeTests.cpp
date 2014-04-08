@@ -15,31 +15,64 @@ namespace tests_BinaryTree {
 		bt.insert("a");
 		bt.insert("b");
 
-		cout << bt.generateInfixNotation() << endl;
-		cout << bt.generatePostfixNotation() << endl;
+		assert(bt.generateInfixNotation() == " a  b  c  d ");		
+		assert(bt.generatePostfixNotation() == " c  a  b  d ");
 
 		BinaryTree<int> bti;
-		bti.insert(5);
-		bti.insert(2);
-		bti.insert(1);
-		bti.insert(3);
-		bti.insert(7);
-		bti.insert(6);
-		bti.insert(4);
-		bti.insert(2);
-		bti.insert(5);
+		assert(bti.insert(5) == true);
+		assert(bti.insert(2) == true);
+		assert(bti.insert(1) == true);
+		assert(bti.insert(3) == true);
+		assert(bti.insert(7) == true);
+		assert(bti.insert(6) == true);
+		assert(bti.insert(4) == true);
+		assert(bti.insert(2) == false);
+		assert(bti.insert(5) == false);
 
-		cout << bti.generateInfixNotation() << endl;
-		cout << bti.generatePostfixNotation() << endl;
+		assert(bti.generateInfixNotation() == " 1  2  3  4  5  6  7 ");
+		assert(bti.generatePostfixNotation() == " 5  2  1  3  4  7  6 ");
 	}
 
 	void tests_remove() {
 		BinaryTree<int> bti;
 		bti.insert(10);
-		bti.remove(10);
+		assert(bti.remove(10) == true);
 
-		cout << bti.generateInfixNotation() << endl;
-		cout << bti.generatePostfixNotation() << endl;	
+		assert(bti.generateInfixNotation() == "emptyTree");
+		assert(bti.generatePostfixNotation() == "emptyTree");
+
+		bti.insert(10);
+		bti.insert(6);
+		bti.insert(4);
+		bti.insert(9);
+		assert(bti.remove(99) == false);
+		assert(bti.generateInfixNotation() == " 4  6  9  10 ");
+		assert(bti.generatePostfixNotation() == " 10  6  4  9 ");
+		assert(bti.remove(4) == true);
+		assert(bti.generateInfixNotation() == " 6  9  10 ");
+		assert(bti.generatePostfixNotation() == " 10  6  9 ");
+		assert(bti.remove(6) == true);
+		assert(bti.generateInfixNotation() == " 9  10 ");
+		assert(bti.generatePostfixNotation() == " 10  9 ");
+		assert(bti.remove(9) == true);
+		assert(bti.generateInfixNotation() == " 10 ");
+		assert(bti.generatePostfixNotation() == " 10 ");
+		assert(bti.remove(10) == true);
+		assert(bti.generateInfixNotation() == "emptyTree");
+		assert(bti.generatePostfixNotation() == "emptyTree");
+		bti.insert(14);
+		bti.insert(7);
+		bti.insert(21);
+		bti.insert(11);
+		bti.insert(16);
+		assert(bti.generateInfixNotation() == " 7  11  14  16  21 ");
+		assert(bti.generatePostfixNotation() == " 14  7  11  21  16 ");
+		assert(bti.remove(7) == true);
+		assert(bti.generateInfixNotation() == " 11  14  16  21 ");
+		assert(bti.generatePostfixNotation() == " 14  11  21  16 ");
+		assert(bti.remove(21) == true);
+		assert(bti.generateInfixNotation() == " 11  14  16 ");
+		assert(bti.generatePostfixNotation() == " 14  11  16 ");
 	}
 
 	void runTests() {
