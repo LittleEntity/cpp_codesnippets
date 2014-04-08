@@ -63,7 +63,8 @@ bool BinaryTree<T>::remove(const T & dataToBeDeleted) {
 	//cout << "currentNode.smallChildPtr: " << currentNode.smallChildPtr << endl;
 	//cout << "currentNode.bigChildPtr: " << currentNode.bigChildPtr << endl;
 	// case: node has no children
-	const bool hasNoChildren = (currentNode.smallChildPtr == nullptr) && (currentNode.bigChildPtr == nullptr);
+	const bool hasNoChildren = (currentNode.smallChildPtr == nullptr)
+	  && (currentNode.bigChildPtr == nullptr);
 	if (hasNoChildren) {
 		delete *removalPtr;
 		*removalPtr = nullptr;
@@ -72,7 +73,8 @@ bool BinaryTree<T>::remove(const T & dataToBeDeleted) {
 	}
 
 	// case: node has small child and no big child
-	const bool hasSmallChild = (currentNode.smallChildPtr != nullptr) && (currentNode.bigChildPtr == nullptr);
+	const bool hasSmallChild = (currentNode.smallChildPtr != nullptr) 
+	  && (currentNode.bigChildPtr == nullptr);
 	if (hasSmallChild) {
 		BinaryTreeNode<T> * smallChildPtr = currentNode.smallChildPtr;
 		delete *removalPtr;
@@ -81,7 +83,8 @@ bool BinaryTree<T>::remove(const T & dataToBeDeleted) {
 	} 
 
 	// case: node has big child and no small child
-	const bool hasBigChild = (currentNode.bigChildPtr != nullptr) && (currentNode.smallChildPtr == nullptr);
+	const bool hasBigChild = (currentNode.bigChildPtr != nullptr) 
+	  && (currentNode.smallChildPtr == nullptr);
 	if (hasBigChild) {
 		BinaryTreeNode<T> * bigChildPtr = currentNode.bigChildPtr;
 		delete *removalPtr;
